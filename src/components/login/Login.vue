@@ -5,7 +5,7 @@
       </md-card-header>
 
       <div style="width: 100%;height:100px;display: flex;justify-content: center">
-        <img src="/static/img/repair.jfif" width="100px" height="100px">
+        <img src="/static/img/repair.png" width="100px" height="100px">
       </div>
 
       <md-field style="width: 90%;margin-left: 5%">

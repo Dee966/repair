@@ -4,7 +4,7 @@
         <span class="md-title">我的</span>
       </md-toolbar>
       <div style="margin: 10px">
-        <img src="/static/img/repair.jfif" width="80" height="80">
+        <img src="/static/img/repair.png" width="80" height="80">
         <span style="margin-left: 15px;font-size: 15px"><strong>{{user.name}}</strong></span>
         <span style="float: right;margin: 10px;color: #909399"><em>余额：{{user.balance}}</em></span>
       </div>

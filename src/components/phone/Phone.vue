@@ -28,8 +28,8 @@
 <!--    <button @click="check">check</button>-->
     <div style="position: fixed;width:100%;height: 50px;bottom: 0;border-top: solid #c1c3c7 1px">
       <el-row>
-        <el-col :span="16"><div class="grid-content bg-purple">
-          <span style="font-size: 22px;color: #ff5000;" v-if="radio2 != null">￥ {{JSON.parse(radio2).price}}</span>
+        <el-col :span="16"><div class="grid-content bg-purple" style="height: 50px;color: white">
+          <span style="font-size: 22px;color: #ff5000" v-if="radio2 != null">￥ {{JSON.parse(radio2).price}}</span>
         </div>
         </el-col>
         <el-col :span="8">
@@ -56,7 +56,7 @@
     },
     methods:{
       getPhoneById(id){
-        this.$axios.get('/serverName/phone/phone/'+id).then(res =>{
+        this.$axios.get('http://'+localStorage.getItem('ipAddress')+':8080/phone/phone/'+id).then(res =>{
           let str = {name:"xiaoman",age:18}
           this.phone = res.data.data
           console.log(this.phone)

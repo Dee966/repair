@@ -3,6 +3,7 @@
     <md-bottom-bar md-sync-route>
       <md-bottom-bar-item :to="{name:'homeLink'}" exact md-label="主页" md-icon="home"></md-bottom-bar-item>
       <md-bottom-bar-item :to="{name:'orderLink'}" md-label="订单" md-icon="pages"></md-bottom-bar-item>
+      <md-bottom-bar-item :to="{name:'reTypeLink'}" md-label="回收" md-icon="loop"></md-bottom-bar-item>
       <md-bottom-bar-item :to="{name:'myLink'}" md-label="我的" md-icon="person"></md-bottom-bar-item>
     </md-bottom-bar>
   </div>

@@ -126,7 +126,7 @@
         }
         this.$axios({
           method: 'post',
-          url:'/serverName/order/insert',
+          url:'http://'+localStorage.getItem('ipAddress')+':8080/order/insert',
           data:orderVo,
           headers:{
             'Authorization':token

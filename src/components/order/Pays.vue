@@ -42,7 +42,7 @@
           total:this.orderPay.total,
           userId:this.orderPay.userId
         }
-        this.$axios.put('/serverName/order/pay',payVo).then(res =>{
+        this.$axios.put('http://'+localStorage.getItem('ipAddress')+':8080/order/pay',payVo).then(res =>{
           if (res.data.code !== 0){
             alert(res.data.msg)
           } else {

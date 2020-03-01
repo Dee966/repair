@@ -27,7 +27,9 @@
     <section class="my-swiper" style="margin-top: 56px">
       <swiper v-if="items.length>1" :options="swiperOption" style="width: 375px;height: 200px">
         <swiper-slide  class="my-swp-silde" v-for="(slide, key) in items" :key="key" data-id="slide.id">
-          <img class="my-swp-img" :src="slide.img" alt="" style="width: 375px;height: 200px">
+          <router-link :to="slide.link">
+            <img class="my-swp-img" :src="slide.img" alt="" style="width: 375px;height: 200px" >
+          </router-link>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -84,7 +86,7 @@
         },
         items: [],
         phones:[],
-        typeClass:'md-elevation-'
+
       }
     },
     components:{
@@ -92,7 +94,7 @@
     },
     methods:{
       search:function(){
-        this.$axios.get('/serverName/phone/search/'+this.selectedEmployee).then(res =>{
+        this.$axios.get('http://'+localStorage.getItem('ipAddress')+':8080/phone/search/'+this.selectedEmployee).then(res =>{
           if (res.data.code !== 0){
             alert(res.data.msg);
           } else {
@@ -103,7 +105,7 @@
         })
       },
       getBanner:function() {
-        this.$axios.get('/serverName/banner/list').then(res =>{
+        this.$axios.get('http://'+localStorage.getItem('ipAddress')+':8080/banner/list').then(res =>{
           let banner = res.data.data
           this.items = banner;
         }).catch(err =>{
@@ -112,7 +114,7 @@
         // console.log(this.items)
       },
       getType:function(){
-        this.$axios.get('/serverName/phone/type').then(res =>{
+        this.$axios.get('http://'+localStorage.getItem('ipAddress')+':8080/phone/type').then(res =>{
           this.phones = res.data.data
         }).catch(err =>{
           alert("请求失败！")

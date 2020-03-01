@@ -41,7 +41,7 @@
             telephone:this.telephone,
             wechat:this.wechat
           }
-          this.$axios.put('/serverName/user/info/'+this.userId,info).then(res =>{
+          this.$axios.put('http://'+localStorage.getItem('ipAddress')+':8080/user/info/'+this.userId,info).then(res =>{
             if (res.data.code !== 0){
               alert(res.data.msg)
             }else {

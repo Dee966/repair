@@ -5,7 +5,7 @@
       </md-card-header>
 
       <div style="width: 100%;height:100px;display: flex;justify-content: center">
-        <img src="/static/img/repair.jfif" width="100px" height="100px">
+        <img :src=img width="100px" height="100px">
       </div>
 
       <md-field style="width: 90%;margin-left: 5%">
@@ -30,16 +30,18 @@
       data(){
           return{
             username:'',
-            password:''
+            password:'',
+            img:'./static/img/repair.png'
           }
       },
       methods:{
         register(){
           let loginVo = {
             username:this.username,
-            password:this.password
+            password:this.password,
+            img:'./static/img/repair.png'
           }
-          this.$axios.post('/serverName/login/user_register',loginVo).then(res =>{
+          this.$axios.post('http://'+localStorage.getItem('ipAddress')+':8080/login/user_register',loginVo).then(res =>{
             if (res.data.code !== 0){
               alert(res.data.msg)
             } else {

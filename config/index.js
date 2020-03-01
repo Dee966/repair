@@ -52,15 +52,15 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
-    proxyTable: {
-      '/serverName':{
-        target:'http://192.168.10.72:8080/',
-        changeOrigin:true,
-        pathRewrite:{
-          '^/serverName': ''
-        }
-      }
-    },
+    // proxyTable: {
+    //   '/serverName':{
+    //     target:'http://192.168.10.72:8080/',
+    //     changeOrigin:true,
+    //     pathRewrite:{
+    //       '^/serverName': ''
+    //     }
+    //   }
+    // },
 
     /**
      * Source Maps

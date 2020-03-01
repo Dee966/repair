@@ -1,12 +1,12 @@
 <template>
-  <div id="type">
+  <div id="recover_type">
     <md-toolbar class="md-primary" style="display: flex;justify-content: center">
-      <span class="md-title">机型选择</span>
+      <span class="md-title">选择机型</span>
     </md-toolbar>
     <el-tabs v-model="activeName" @tab-click="handleClick(activeName)">
       <el-tab-pane label="苹果" name="apple" to="/type/1">
         <div v-for="(phone,i) in phones" :key="i">
-          <router-link :to="/phone/+phone.phoneId">
+          <router-link :to="/chooseCondition/+phone.phoneId">
             <div style="width: 33.3%;height: 100px;float: left;">
               <img :src=phone.img style="width: 80px;height: 80px;margin-left: 22px"><br>
               <div style="width: 100%;display: flex;justify-content: center">
@@ -18,7 +18,7 @@
       </el-tab-pane>
       <el-tab-pane label="华为" name="huawei">
         <div v-for="(phone,i) in phones" :key="i">
-          <router-link :to="/phone/+phone.phoneId">
+          <router-link :to="/chooseCondition/+phone.phoneId">
             <div style="width: 33.3%;height: 100px;float: left;">
               <img :src=phone.img style="width: 80px;height: 80px;margin-left: 22px"><br>
               <div style="width: 100%;display: flex;justify-content: center">
@@ -30,7 +30,7 @@
       </el-tab-pane>
       <el-tab-pane label="小米" name="mi" to="/type/4">
         <div v-for="(phone,i) in phones" :key="i">
-          <router-link :to="/phone/+phone.phoneId">
+          <router-link :to="/chooseCondition/+phone.phoneId">
             <div style="width: 33.3%;height: 100px;float: left;">
               <img :src=phone.img style="width: 80px;height: 80px;margin-left: 22px"><br>
               <div style="width: 100%;display: flex;justify-content: center">
@@ -42,7 +42,7 @@
       </el-tab-pane>
       <el-tab-pane label="三星" name="samsung" to="/type/5">
         <div v-for="(phone,i) in phones" :key="i">
-          <router-link :to="/phone/+phone.phoneId">
+          <router-link :to="/chooseCondition/+phone.phoneId">
             <div style="width: 33.3%;height: 100px;float: left;">
               <img :src=phone.img style="width: 80px;height: 80px;margin-left: 22px"><br>
               <div style="width: 100%;display: flex;justify-content: center">
@@ -54,7 +54,7 @@
       </el-tab-pane>
       <el-tab-pane label="oppo" name="oppo" to="/type/6">
         <div v-for="(phone,i) in phones" :key="i">
-          <router-link :to="/phone/+phone.phoneId">
+          <router-link :to="/chooseCondition/+phone.phoneId">
             <div style="width: 33.3%;height: 100px;float: left;">
               <img :src=phone.img style="width: 80px;height: 80px;margin-left: 22px"><br>
               <div style="width: 100%;display: flex;justify-content: center">
@@ -66,7 +66,7 @@
       </el-tab-pane>
       <el-tab-pane label="vivo" name="vivo" to="/type/7">
         <div v-for="(phone,i) in phones" :key="i">
-          <router-link :to="/phone/+phone.phoneId">
+          <router-link :to="/chooseCondition/+phone.phoneId">
             <div style="width: 33.3%;height: 100px;float: left;">
               <img :src=phone.img style="width: 80px;height: 80px;margin-left: 22px"><br>
               <div style="width: 100%;display: flex;justify-content: center">
@@ -77,18 +77,14 @@
         </div>
       </el-tab-pane>
     </el-tabs>
-
-
-
   </div>
 </template>
 
 <script>
   export default {
-    name: "Type",
+    name: "RecoveryType",
     data() {
       return {
-        tabPosition:'',
         activeName: 'apple',
         types:[],
         phones:[]
@@ -113,53 +109,50 @@
         })
       },
       handleClick:function(activeName){
-        if (this.activeName == 'apple'){
+        if (this.activeName === 'apple'){
           this.getTypePhone(1)
         }
-        if (this.activeName == 'huawei'){
+        if (this.activeName === 'huawei'){
           this.getTypePhone(3)
         }
-        if (this.activeName == 'mi'){
+        if (this.activeName === 'mi'){
           this.getTypePhone(4)
         }
-        if (this.activeName == 'samsung'){
+        if (this.activeName === 'samsung'){
           this.getTypePhone(5)
         }
-        if (this.activeName == 'oppo'){
+        if (this.activeName === 'oppo'){
           this.getTypePhone(6)
         }
-        if (this.activeName == 'vivo'){
+        if (this.activeName === 'vivo'){
           this.getTypePhone(7)
         }
       },
       phoneSign:function (id) {
         console.log(id)
-        if (id == 3){
+        if (id === 3){
           this.activeName = 'huawei'
         }
-        if (id == 4){
+        if (id === 4){
           this.activeName = 'mi'
         }
-        if (id == 5){
+        if (id === 5){
           this.activeName = 'samsung'
         }
-        if (id == 6){
+        if (id === 6){
           this.activeName = 'oppo'
         }
-        if (id == 7){
+        if (id === 7){
           this.activeName = 'vivo'
         }
       }
     },
-    mounted:function () {
-      this.getType();
-      this.getTypePhone(this.$route.params.id);
-      this.phoneSign(this.$route.params.id);
-      this.tabPosition = 'life'
+    mounted() {
+      this.getTypePhone(1);
     }
-
   }
 </script>
 
 <style scoped>
+
 </style>

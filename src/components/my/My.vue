@@ -4,13 +4,11 @@
         <span class="md-title">我的</span>
       </md-toolbar>
       <div style="margin: 10px">
-        <img src="/static/img/repair.png" width="80" height="80">
+        <img :src=img width="80" height="80">
         <span style="margin-left: 15px;font-size: 15px"><strong>{{user.name}}</strong></span>
         <span style="float: right;margin: 10px;color: #909399"><em>余额：{{user.balance}}</em></span>
       </div>
-      <md-toolbar style="margin-bottom: 1px" md-elevation="0">
-        <h3 class="md-title">地址管理</h3>
-      </md-toolbar>
+
       <md-toolbar style="margin-bottom: 1px" md-elevation="0">
         <h3 class="md-title">关于我们</h3>
       </md-toolbar>
@@ -45,7 +43,8 @@
             realName:'',
             telephone:'',
             wechat:'',
-            user:{}
+            user:{},
+            img:'./static/img/repair.png'
           }
       },
       methods:{
@@ -54,7 +53,7 @@
           let token = localStorage.getItem('token')
           this.$axios({
             method: 'get',
-            'url':'/serverName/user/info/'+1,
+            'url':'http://'+localStorage.getItem('ipAddress')+':8080/user/info/'+1,
             headers:{
               'Authorization':token
             }
@@ -82,7 +81,7 @@
             telephone:this.telephone,
             wechat:this.wechat
           }
-          this.$axios.put('/serverName/user/info/'+userId,userVo).then(res =>{
+          this.$axios.put('http://'+localStorage.getItem('ipAddress')+':8080/user/info/'+userId,userVo).then(res =>{
             if (res.data.code !== 0){
               alert(res.data.msg)
             } else {

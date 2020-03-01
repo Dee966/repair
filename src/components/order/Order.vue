@@ -1,7 +1,8 @@
 <template>
     <div id="order">
-      <md-toolbar class="md-primary" style="display: flex;justify-content: center;position: fixed;top: 0">
-        <span class="md-title">订单</span>
+      <md-toolbar class="md-primary" style="position: fixed;top: 0">
+        <span class="md-title" style="margin-left: 160px">订单</span>
+        <span style="margin-left: 100px"><router-link :to="{name:'orRecoveryLink'}" style="color: white">回收订单</router-link></span>
       </md-toolbar>
       <md-tabs style="margin: 55px 0px">
         <md-tab id="tab-all" md-label="全部">
@@ -138,7 +139,7 @@
         let token = localStorage.getItem('token')
         this.$axios({
           method:'get',
-          url:'/serverName/order/'+userId,
+          url:'http://'+localStorage.getItem('ipAddress')+':8080/order/'+userId,
           headers:{
             'Authorization':token
           }
@@ -157,7 +158,7 @@
       },
       stateOrder(state){
         let userId = localStorage.getItem('userId')
-        this.$axios.get('/serverName/order/state?state='+state+'&userId='+userId).then(res =>{
+        this.$axios.get('http://'+localStorage.getItem('ipAddress')+':8080/order/state?state='+state+'&userId='+userId).then(res =>{
           if (res.data.code !== 0){
             alert(res.data.msg)
           } else {
@@ -173,7 +174,7 @@
       confirmGot(state,orderId){
         let stateVo = {orderId:orderId,state:state}
         console.log(stateVo)
-        this.$axios.put('/serverName/order/state',stateVo).then(res =>{
+        this.$axios.put('http://'+localStorage.getItem('ipAddress')+':8080/order/state',stateVo).then(res =>{
           if (res.data.code !== 0){
             alert(res.data.msg)
           } else {

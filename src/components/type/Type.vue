@@ -108,6 +108,10 @@
         this.$axios.get('http://'+localStorage.getItem('ipAddress')+':8080/phone/get_type/'+id).then(res =>{
           console.log(res.data.data)
           this.phones = res.data.data
+          for (let i = 0;i < this.phones.length;i++){
+            this.phones[i].img = this.phones[i].img.substr(1);
+            console.log(this.phones[i].img.substr(1))
+          }
         }).catch(err =>{
           alert("请求失败！")
         })

@@ -5,7 +5,7 @@
         <md-input v-model="model"></md-input>
       </md-field>
       <md-field>
-        <label>品牌ID</label>
+        <label>品牌ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苹果：1 华为：3 小米：4 三星：5 OPPO：6 VIVO：7</label>
         <md-input v-model="typeId"></md-input>
       </md-field>
       <div style="display: flex;justify-content: center;">

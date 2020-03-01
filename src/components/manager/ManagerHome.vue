@@ -1,6 +1,9 @@
 <template>
     <div id="manager_home" style="margin: 0px 10%;padding: 0px 8%">
-      <h1>手机闪修——后台管理系统</h1>
+      <div style="width: 100%;display: flex;margin: 10px 0px">
+        <img :src="logo" alt="" style="width: 56px;height: 56px">&nbsp;&nbsp;
+        <h1>手机闪修——后台管理系统</h1>
+      </div>
       <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
@@ -25,6 +28,7 @@
       data(){
           return{
             activeIndex:'1',
+            logo:'/static/img/repair.png'
           }
       },
       components:{

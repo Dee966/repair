@@ -70,6 +70,10 @@
             alert(res.data.msg)
           }else {
             this.orders = res.data.data.list
+            for (let i = 0;i < this.orders.length;i++){
+              this.orders[i].img = this.orders[i].img.substr(1);
+              console.log(this.orders[i].img.substr(1))
+            }
             this.pageNum = res.data.data.pageNum
             this.pages = res.data.data.pages
             this.pageSize = res.data.data.size

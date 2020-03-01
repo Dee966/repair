@@ -18,7 +18,7 @@
       <md-radio v-model="radio1" :value="color.color" style="float: left;padding-left: 12px">{{color.color}}</md-radio>
     </div>
     <br><br><br><br><br><div style="background-color: #fafafa;color:#fafafa;">123</div>
-    <div style="border-top: solid #eee 3px" >
+    <div style="border-top: solid #eee 3px;margin-bottom: 60px" >
       <h4 style="padding-left: 10px;margin: 10px 0px">选择故障</h4>
       <div v-for="(hitch,i) in phone.hitches" :key="i">
         <md-radio v-model="radio2" :value='hitch.hitch' style="padding-left: 15px">{{JSON.parse(hitch.hitch).hitch}}</md-radio>
@@ -57,8 +57,8 @@
     methods:{
       getPhoneById(id){
         this.$axios.get('http://'+localStorage.getItem('ipAddress')+':8080/phone/phone/'+id).then(res =>{
-          let str = {name:"xiaoman",age:18}
           this.phone = res.data.data
+          this.phone.img = this.phone.img.substr(1)
           console.log(this.phone)
         }).catch(err =>{
           alert("请求失败！")

@@ -92,6 +92,10 @@
             alert(res.data.msg)
           } else {
             this.allOrders = res.data.data.list
+            for (let i = 0;i < this.allOrders.length;i++){
+              this.allOrders[i].img = this.allOrders[i].img.substr(1);
+              console.log(this.allOrders[i].img.substr(1))
+            }
             this.pageNum = res.data.data.pageNum
             this.pages = res.data.data.pages
             this.pageSize = res.data.data.size
@@ -109,6 +113,10 @@
             alert(res.data.msg)
           } else {
             this.allOrders = res.data.data.list
+            for (let i = 0;i < this.allOrders.length;i++){
+              this.allOrders[i].img = this.allOrders[i].img.substr(1);
+              console.log(this.allOrders[i].img.substr(1))
+            }
           }
         }).catch(err => {
           alert('系统错误，联系我们--手机/微信：15102064905')

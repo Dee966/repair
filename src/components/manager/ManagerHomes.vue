@@ -30,7 +30,7 @@
             </md-table-row>
             <md-table-row v-for="(phone,i) in phones" :key="i">
               <md-table-cell md-numeric>{{phone.phoneId}}</md-table-cell>
-              <md-table-cell>iPhone 11</md-table-cell>
+              <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><img :src=phone.img width="60px" height="60px"></md-table-cell>
               <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><span style="cursor:pointer;;color: red">删除</span></md-table-cell>
@@ -48,7 +48,7 @@
             </md-table-row>
             <md-table-row v-for="(phone,i) in phones" :key="i">
               <md-table-cell md-numeric>{{phone.phoneId}}</md-table-cell>
-              <md-table-cell>iPhone 11</md-table-cell>
+              <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><img :src=phone.img width="60px" height="60px"></md-table-cell>
               <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><span style="cursor:pointer;;color: red">删除</span></md-table-cell>
@@ -66,7 +66,7 @@
             </md-table-row>
             <md-table-row v-for="(phone,i) in phones" :key="i">
               <md-table-cell md-numeric>{{phone.phoneId}}</md-table-cell>
-              <md-table-cell>iPhone 11</md-table-cell>
+              <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><img :src=phone.img width="60px" height="60px"></md-table-cell>
               <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><span style="cursor:pointer;;color: red">删除</span></md-table-cell>
@@ -84,7 +84,7 @@
             </md-table-row>
             <md-table-row v-for="(phone,i) in phones" :key="i">
               <md-table-cell md-numeric>{{phone.phoneId}}</md-table-cell>
-              <md-table-cell>iPhone 11</md-table-cell>
+              <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><img :src=phone.img width="60px" height="60px"></md-table-cell>
               <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><span style="cursor:pointer;;color: red">删除</span></md-table-cell>
@@ -102,7 +102,7 @@
             </md-table-row>
             <md-table-row v-for="(phone,i) in phones" :key="i">
               <md-table-cell md-numeric>{{phone.phoneId}}</md-table-cell>
-              <md-table-cell>iPhone 11</md-table-cell>
+              <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><img :src=phone.img width="60px" height="60px"></md-table-cell>
               <md-table-cell>{{phone.model}}</md-table-cell>
               <md-table-cell><span style="cursor:pointer;;color: red">删除</span></md-table-cell>
@@ -171,6 +171,11 @@
           this.$axios.get('http://localhost:8080/phone/get_type/' + id).then(res => {
             console.log(res.data.data)
             this.phones = res.data.data
+            for (let i = 0;i < this.phones.length;i++){
+              this.phones[i].img = this.phones[i].img.substr(1);
+              console.log(this.phones[i].img.substr(1))
+            }
+
           }).catch(err => {
             alert("请求失败！")
           })

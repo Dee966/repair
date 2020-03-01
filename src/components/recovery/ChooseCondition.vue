@@ -106,6 +106,7 @@
       getPhoneById(id) {
         this.$axios.get('http://' + localStorage.getItem('ipAddress') + ':8080/phone/phone/' + id).then(res => {
           this.phone = res.data.data
+          this.phone.img = this.phone.img.substr(1);
           console.log(this.phone)
         }).catch(err => {
           alert("请求失败！")
